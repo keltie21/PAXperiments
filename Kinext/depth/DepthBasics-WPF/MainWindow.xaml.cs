@@ -14,6 +14,8 @@ namespace Microsoft.Samples.Kinect.DepthBasics
     using System.Windows.Media.Imaging;
     using Microsoft.Kinect;
     using System.Diagnostics;
+    using System.Drawing;
+    
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -311,10 +313,10 @@ namespace Microsoft.Samples.Kinect.DepthBasics
             jointTo.TrackingState == JointTrackingState.Inferred)
             {
                 DepthImagePoint mappedSkeletonFromDdepthPoint = sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(jointFrom.Position, sensor.DepthStream.Format);
-                Point mappedFromPoint = new Point(mappedSkeletonFromDdepthPoint.X, mappedSkeletonFromDdepthPoint.Y);
+                System.Drawing.Point mappedFromPoint = new System.Drawing.Point(mappedSkeletonFromDdepthPoint.X, mappedSkeletonFromDdepthPoint.Y);
 
                 DepthImagePoint mappedSkeletonToDepthPoint = sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(jointTo.Position, sensor.DepthStream.Format);
-                Point mappedToPoint = new Point(mappedSkeletonFromDdepthPoint.X, mappedSkeletonFromDdepthPoint.Y);
+                System.Drawing.Point mappedToPoint = new System.Drawing.Point(mappedSkeletonFromDdepthPoint.X, mappedSkeletonFromDdepthPoint.Y);
 
                 DrawNonTrackedBoneLine(mappedFromPoint, mappedToPoint);  // Draw thin lines if either one of the joints is inferred
             }
@@ -323,22 +325,24 @@ namespace Microsoft.Samples.Kinect.DepthBasics
             jointTo.TrackingState == JointTrackingState.Tracked)
             {
                 DepthImagePoint mappedSkeletonFromDdepthPoint = sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(jointFrom.Position, sensor.DepthStream.Format);
-                Point mappedFromPoint = new Point(mappedSkeletonFromDdepthPoint.X, mappedSkeletonFromDdepthPoint.Y);
+                System.Drawing.Point mappedFromPoint = new System.Drawing.Point(mappedSkeletonFromDdepthPoint.X, mappedSkeletonFromDdepthPoint.Y);
 
                 DepthImagePoint mappedSkeletonToDepthPoint = sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(jointTo.Position, sensor.DepthStream.Format);
-                Point mappedToPoint = new Point(mappedSkeletonFromDdepthPoint.X, mappedSkeletonFromDdepthPoint.Y);
+                System.Drawing.Point mappedToPoint = new System.Drawing.Point(mappedSkeletonFromDdepthPoint.X, mappedSkeletonFromDdepthPoint.Y);
 
                 DrawTrackedBoneLine(mappedFromPoint, mappedToPoint);  // Draw bold lines if the joints are both tracked
             }
         }
 
-        private void DrawNonTrackedBoneLine( Point pt1, Point pt2 )
+        private void DrawNonTrackedBoneLine(System.Drawing.Point pt1, System.Drawing.Point pt2 )
         {
-            //Brush br1 = new SolidBrush(Color.Red);
+            System.Drawing.Pen thinPen = new System.Drawing.Pen(System.Drawing.Color.Red, 1);
+            Drawline(thinPen, pt1, pt2);
+            
 
         }
 
-        private void DrawTrackedBoneLine( Point pt1, Point pt2)
+        private void DrawTrackedBoneLine(System.Drawing.Point pt1, System.Drawing.Point pt2)
         {
 
         }
