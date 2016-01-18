@@ -13,6 +13,7 @@ namespace Microsoft.Samples.Kinect.DepthBasics
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using Microsoft.Kinect;
+    using System.Diagnostics;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -71,7 +72,8 @@ namespace Microsoft.Samples.Kinect.DepthBasics
             {
                 // Turn on the depth stream to receive depth frames
                 this.sensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
-                
+               // this.sensor.SkeletonStream.Enable();
+
                 // Allocate space to put the depth pixels we'll receive
                 this.depthPixels = new DepthImagePixel[this.sensor.DepthStream.FramePixelDataLength];
 
@@ -86,6 +88,10 @@ namespace Microsoft.Samples.Kinect.DepthBasics
 
                 // Add an event handler to be called whenever there is new depth frame data
                 this.sensor.DepthFrameReady += this.SensorDepthFrameReady;
+
+
+                //var skeletonData = new Skeleton[this.sensor.SkeletonStream.FrameSkeletonArrayLength];
+               // this.sensor.SkeletonFrameReady += new EventHandler<SkeletonFrameReadyEventArgs>(SkeletonFrameReady);
 
                 // Start the sensor!
                 try
@@ -114,6 +120,7 @@ namespace Microsoft.Samples.Kinect.DepthBasics
             if (null != this.sensor)
             {
                 this.sensor.Stop();
+                
             }
         }
 
@@ -128,12 +135,14 @@ namespace Microsoft.Samples.Kinect.DepthBasics
             {
                 if (depthFrame != null)
                 {
+                    
                     // Copy the pixel data from the image to a temporary array
                     depthFrame.CopyDepthImagePixelDataTo(this.depthPixels);
 
                     // Get the min and max reliable depth for the current frame
                     int minDepth = depthFrame.MinDepth;
                     int maxDepth = depthFrame.MaxDepth;
+                   
 
                     // Convert the depth to RGB
                     int colorPixelIndex = 0;
@@ -157,7 +166,14 @@ namespace Microsoft.Samples.Kinect.DepthBasics
                         this.colorPixels[colorPixelIndex++] = intensity;
 
                         // Write out green byte
-                        this.colorPixels[colorPixelIndex++] = intensity;
+                        if (depth < 1000 && depth > 950)
+                        {
+                            this.colorPixels[colorPixelIndex++] = 0;
+                        }
+                        else
+                        {
+                            this.colorPixels[colorPixelIndex++] = intensity;
+                        }
 
                         // Write out red byte                        
                         this.colorPixels[colorPixelIndex++] = intensity;
@@ -243,6 +259,11 @@ namespace Microsoft.Samples.Kinect.DepthBasics
                 {
                 }
             }
+        }
+
+        private void colourBlob( object sender, DepthImageFrameReadyEventArgs e)
+        {
+            
         }
     }
 }
