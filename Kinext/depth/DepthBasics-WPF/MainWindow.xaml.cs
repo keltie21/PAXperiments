@@ -40,6 +40,8 @@ namespace Microsoft.Samples.Kinect.DepthBasics
         /// </summary>
         private byte[] colorPixels;
 
+        public Skeleton[] skeletonData;
+
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
@@ -72,7 +74,7 @@ namespace Microsoft.Samples.Kinect.DepthBasics
             {
                 // Turn on the depth stream to receive depth frames
                 this.sensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
-               // this.sensor.SkeletonStream.Enable();
+                this.sensor.SkeletonStream.Enable();
 
                 // Allocate space to put the depth pixels we'll receive
                 this.depthPixels = new DepthImagePixel[this.sensor.DepthStream.FramePixelDataLength];
@@ -90,8 +92,8 @@ namespace Microsoft.Samples.Kinect.DepthBasics
                 this.sensor.DepthFrameReady += this.SensorDepthFrameReady;
 
 
-                //var skeletonData = new Skeleton[this.sensor.SkeletonStream.FrameSkeletonArrayLength];
-               // this.sensor.SkeletonFrameReady += new EventHandler<SkeletonFrameReadyEventArgs>(SkeletonFrameReady);
+                skeletonData = new Skeleton[this.sensor.SkeletonStream.FrameSkeletonArrayLength];
+                this.sensor.SkeletonFrameReady += new EventHandler<SkeletonFrameReadyEventArgs>(sensor_SkeletonFrameReady);
 
                 // Start the sensor!
                 try
@@ -263,7 +265,82 @@ namespace Microsoft.Samples.Kinect.DepthBasics
 
         private void colourBlob( object sender, DepthImageFrameReadyEventArgs e)
         {
-            
+            // this will hold the point data of the point the user jabs
+        }
+
+        void sensor_SkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
+        {
+            using (SkeletonFrame skeletonFrame = e.OpenSkeletonFrame()) // Open the Skeleton frame
+            {
+                if (skeletonFrame != null && this.skeletonData != null) // check that a frame is available
+                {
+                    skeletonFrame.CopySkeletonDataTo(this.skeletonData); // get the skeletal information in this frame
+                }
+            }
+        }
+
+        private void DrawTrackedSkeletonJoints(JointCollection jointCollection)
+        {
+            // Render Head and Shoulders
+            DrawBone(jointCollection[JointType.Head], jointCollection[JointType.ShoulderCenter]);
+            DrawBone(jointCollection[JointType.ShoulderCenter], jointCollection[JointType.ShoulderLeft]);
+            DrawBone(jointCollection[JointType.ShoulderCenter], jointCollection[JointType.ShoulderRight]);
+
+            // Render Left Arm
+            DrawBone(jointCollection[JointType.ShoulderLeft], jointCollection[JointType.ElbowLeft]);
+            DrawBone(jointCollection[JointType.ElbowLeft], jointCollection[JointType.WristLeft]);
+            DrawBone(jointCollection[JointType.WristLeft], jointCollection[JointType.HandLeft]);
+
+            // Render Right Arm
+            DrawBone(jointCollection[JointType.ShoulderRight], jointCollection[JointType.ElbowRight]);
+            DrawBone(jointCollection[JointType.ElbowRight], jointCollection[JointType.WristRight]);
+            DrawBone(jointCollection[JointType.WristRight], jointCollection[JointType.HandRight]);
+
+            // Render other bones... not really needed if I'm sitting
+        }
+
+        private void DrawBone(Joint jointFrom, Joint jointTo)
+        {
+            if (jointFrom.TrackingState == JointTrackingState.NotTracked ||
+            jointTo.TrackingState == JointTrackingState.NotTracked)
+            {
+                return; // nothing to draw, one of the joints is not tracked
+            }
+
+            if (jointFrom.TrackingState == JointTrackingState.Inferred ||
+            jointTo.TrackingState == JointTrackingState.Inferred)
+            {
+                DepthImagePoint mappedSkeletonFromDdepthPoint = sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(jointFrom.Position, sensor.DepthStream.Format);
+                Point mappedFromPoint = new Point(mappedSkeletonFromDdepthPoint.X, mappedSkeletonFromDdepthPoint.Y);
+
+                DepthImagePoint mappedSkeletonToDepthPoint = sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(jointTo.Position, sensor.DepthStream.Format);
+                Point mappedToPoint = new Point(mappedSkeletonFromDdepthPoint.X, mappedSkeletonFromDdepthPoint.Y);
+
+                DrawNonTrackedBoneLine(mappedFromPoint, mappedToPoint);  // Draw thin lines if either one of the joints is inferred
+            }
+
+            if (jointFrom.TrackingState == JointTrackingState.Tracked &&
+            jointTo.TrackingState == JointTrackingState.Tracked)
+            {
+                DepthImagePoint mappedSkeletonFromDdepthPoint = sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(jointFrom.Position, sensor.DepthStream.Format);
+                Point mappedFromPoint = new Point(mappedSkeletonFromDdepthPoint.X, mappedSkeletonFromDdepthPoint.Y);
+
+                DepthImagePoint mappedSkeletonToDepthPoint = sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(jointTo.Position, sensor.DepthStream.Format);
+                Point mappedToPoint = new Point(mappedSkeletonFromDdepthPoint.X, mappedSkeletonFromDdepthPoint.Y);
+
+                DrawTrackedBoneLine(mappedFromPoint, mappedToPoint);  // Draw bold lines if the joints are both tracked
+            }
+        }
+
+        private void DrawNonTrackedBoneLine( Point pt1, Point pt2 )
+        {
+            //Brush br1 = new SolidBrush(Color.Red);
+
+        }
+
+        private void DrawTrackedBoneLine( Point pt1, Point pt2)
+        {
+
         }
     }
 }
