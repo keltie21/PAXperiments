@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WindowsFormsApplication3.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="src1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Documents/</Value>
+    </Setting>
+    <Setting Name="src2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">csv/</Value>
+    </Setting>
+    <Setting Name="src3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">illustrator/</Value>
+    </Setting>
+    <Setting Name="dst1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">z:/JPEG</Value>
+    </Setting>
+    <Setting Name="dst2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">z:/CSV</Value>
+    </Setting>
+    <Setting Name="dst3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">z:/AI</Value>
+    </Setting>
+    <Setting Name="browser_dst" Type="System.String" Scope="User">
+      <Value Profile="(Default)">csv/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
