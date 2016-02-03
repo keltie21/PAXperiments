@@ -37,8 +37,9 @@ namespace WindowsFormsApplication3
             }
             return false;
         }
-        public void copyToServer(string remote, string local)
+        public bool copyToServer(string remote, string local)
         {
+            bool success = false;
             try
             {
                 ftpRequest = (FtpWebRequest)WebRequest.Create(host + remote);
@@ -54,14 +55,21 @@ namespace WindowsFormsApplication3
                 }
 
                 ftpResponse = (FtpWebResponse)ftpRequest.GetResponse();
-                logResult(remote, host, user);
-                //Console.WriteLine("Uploaded {0}  \n -- stat {1}", remote, ftpResponse.StatusDescription);
+                // check was successful
+                if (ftpResponse.StatusCode == FtpStatusCode.ClosingData)
+                {
+                    success = true;
+                    logResult(remote, host, user);
+                }
+                
                 ftpResponse.Close();
+                
             }
             catch (Exception e)
             {
                 System.Windows.Forms.MessageBox.Show(e.Message);
             }
+            return success;
         }
 
         private void logResult(string fName, string hName, string uName)

@@ -64,9 +64,11 @@ namespace WindowsFormsApplication3
                     {
                         try
                         {
-                            ftp.copyToServer(file.Name, file.FullName);
-                            file.CopyTo(Path.Combine(dests, file.Name), true);
-                            file.Delete();
+                            if (ftp.copyToServer(file.Name, file.FullName))
+                            {
+                                file.CopyTo(Path.Combine(dests, file.Name), true);
+                                file.Delete();
+                            }
                         }
                         catch (Exception z)
                         {
