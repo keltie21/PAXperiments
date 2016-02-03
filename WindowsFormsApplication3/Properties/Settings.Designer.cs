@@ -106,5 +106,41 @@ namespace WindowsFormsApplication3.Properties {
                 this["browser_dst"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ftp://70.32.92.206/test/")]
+        public string ftp_host {
+            get {
+                return ((string)(this["ftp_host"]));
+            }
+            set {
+                this["ftp_host"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ftp_name {
+            get {
+                return ((string)(this["ftp_name"]));
+            }
+            set {
+                this["ftp_name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ftp_pass {
+            get {
+                return ((string)(this["ftp_pass"]));
+            }
+            set {
+                this["ftp_pass"] = value;
+            }
+        }
     }
 }

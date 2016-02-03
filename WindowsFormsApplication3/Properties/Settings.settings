@@ -23,5 +23,14 @@
     <Setting Name="browser_dst" Type="System.String" Scope="User">
       <Value Profile="(Default)">csv/</Value>
     </Setting>
+    <Setting Name="ftp_host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ftp://70.32.92.206/test/</Value>
+    </Setting>
+    <Setting Name="ftp_name" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ftp_pass" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
