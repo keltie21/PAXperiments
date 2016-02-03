@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WindowsFormsApplication3.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="src1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:/temp/</Value>
+    </Setting>
+    <Setting Name="src2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:/temp/</Value>
+    </Setting>
+    <Setting Name="src3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:/temp/</Value>
+    </Setting>
+    <Setting Name="dst1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:/temp/put/</Value>
+    </Setting>
+    <Setting Name="dst2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:/temp/put/</Value>
+    </Setting>
+    <Setting Name="dst3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:/temp/put/</Value>
+    </Setting>
+    <Setting Name="browser_dst" Type="System.String" Scope="User">
+      <Value Profile="(Default)">csv/</Value>
+    </Setting>
+    <Setting Name="ftp_host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ftp://70.32.92.206/test/</Value>
+    </Setting>
+    <Setting Name="ftp_name" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ftp_pass" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
