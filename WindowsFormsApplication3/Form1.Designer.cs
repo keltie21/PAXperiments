@@ -30,11 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txtsrc1 = new System.Windows.Forms.TextBox();
-            this.txtsrc2 = new System.Windows.Forms.TextBox();
-            this.txtsrc3 = new System.Windows.Forms.TextBox();
             this.txtdest1 = new System.Windows.Forms.TextBox();
-            this.txtdest2 = new System.Windows.Forms.TextBox();
-            this.txtdest3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tmrCopy = new System.Windows.Forms.Timer(this.components);
@@ -53,23 +49,6 @@
             this.txtsrc1.Text = "images/";
             this.txtsrc1.TextChanged += new System.EventHandler(this.txtsrc1_TextChanged);
             // 
-            // txtsrc2
-            // 
-            this.txtsrc2.Location = new System.Drawing.Point(76, 44);
-            this.txtsrc2.Margin = new System.Windows.Forms.Padding(2);
-            this.txtsrc2.Name = "txtsrc2";
-            this.txtsrc2.Size = new System.Drawing.Size(267, 20);
-            this.txtsrc2.TabIndex = 1;
-            this.txtsrc2.Text = "csv/";
-            // 
-            // txtsrc3
-            // 
-            this.txtsrc3.Location = new System.Drawing.Point(76, 69);
-            this.txtsrc3.Margin = new System.Windows.Forms.Padding(2);
-            this.txtsrc3.Name = "txtsrc3";
-            this.txtsrc3.Size = new System.Drawing.Size(267, 20);
-            this.txtsrc3.TabIndex = 2;
-            // 
             // txtdest1
             // 
             this.txtdest1.Location = new System.Drawing.Point(76, 121);
@@ -79,23 +58,6 @@
             this.txtdest1.TabIndex = 3;
             this.txtdest1.Text = "c:/temp/images/";
             this.txtdest1.TextChanged += new System.EventHandler(this.txtdest1_TextChanged);
-            // 
-            // txtdest2
-            // 
-            this.txtdest2.Location = new System.Drawing.Point(76, 144);
-            this.txtdest2.Margin = new System.Windows.Forms.Padding(2);
-            this.txtdest2.Name = "txtdest2";
-            this.txtdest2.Size = new System.Drawing.Size(267, 20);
-            this.txtdest2.TabIndex = 4;
-            this.txtdest2.Text = "c:/temp/csv/";
-            // 
-            // txtdest3
-            // 
-            this.txtdest3.Location = new System.Drawing.Point(76, 167);
-            this.txtdest3.Margin = new System.Windows.Forms.Padding(2);
-            this.txtdest3.Name = "txtdest3";
-            this.txtdest3.Size = new System.Drawing.Size(267, 20);
-            this.txtdest3.TabIndex = 5;
             // 
             // label1
             // 
@@ -164,11 +126,7 @@
             this.Controls.Add(this.copy);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtdest3);
-            this.Controls.Add(this.txtdest2);
             this.Controls.Add(this.txtdest1);
-            this.Controls.Add(this.txtsrc3);
-            this.Controls.Add(this.txtsrc2);
             this.Controls.Add(this.txtsrc1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -185,11 +143,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtsrc1;
-        private System.Windows.Forms.TextBox txtsrc2;
-        private System.Windows.Forms.TextBox txtsrc3;
         private System.Windows.Forms.TextBox txtdest1;
-        private System.Windows.Forms.TextBox txtdest2;
-        private System.Windows.Forms.TextBox txtdest3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer tmrCopy;

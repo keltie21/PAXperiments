@@ -71,25 +71,31 @@ namespace WindowsFormsApplication3
                         if (!Directory.Exists(dests[i]))
                             Directory.CreateDirectory(dests[i]);
                         dst = new DirectoryInfo(dests[i]);
-                        Console.WriteLine("HEY");
+
+                        // create ftp object
                         FTPobj ftp = new FTPobj(@"ftp://70.32.92.206/test/", "paxftp", @"$\/]=2m%[<9%]4B");
+
+                        // upload if ftp is good
                         if (ftp.testConnection())
                         {
                             Console.WriteLine("Connection is good");
-                        }
 
-                        foreach (FileInfo file in src.GetFiles())
-                        {
-                            try
+
+                            foreach (FileInfo file in src.GetFiles())
                             {
-                                //file.CopyTo(Path.Combine(dst.FullName, file.Name), true);
-                                //file.CopyTo(Path.Combine(srcBackup.FullName, file.Name), true);
-                                //file.Delete();
-                                Console.WriteLine("File");
-                            }
-                            catch (Exception z)
-                            { 
-                                
+                                try
+                                {
+
+                                    //file.CopyTo(Path.Combine(dst.FullName, file.Name), true);
+                                    //file.CopyTo(Path.Combine(srcBackup.FullName, file.Name), true);
+                                    //file.Delete();
+                                    //Console.WriteLine("File: {1}", file.Name);
+                                    ftp.copyToServer(file.Name, file.FullName);
+                                }
+                                catch (Exception z)
+                                {
+                                    System.Windows.Forms.MessageBox.Show(z.Message);
+                                }
                             }
                         }
                     }
