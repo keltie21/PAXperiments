@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.IO;
 
+
 namespace WindowsFormsApplication3
 {
     public partial class frmSynch : Form
@@ -27,6 +28,7 @@ namespace WindowsFormsApplication3
 
         }
 
+   
         private void tmrCopy_Tick(object sender, EventArgs e)
         {
             Properties.Settings.Default["src1"] = txtsrc1.Text;
@@ -80,7 +82,7 @@ namespace WindowsFormsApplication3
                             }
                             catch (Exception z)
                             { 
-                            
+                                
                             }
                         }
                     }

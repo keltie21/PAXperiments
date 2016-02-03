@@ -39,35 +39,13 @@ namespace WindowsFormsApplication3
             
             }
 
-            // FTP setup
-            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(@"ftp://70.32.92.206/test/newfile.txt");
-            request.Method = WebRequestMethods.Ftp.UploadFile;
+            ///
+            /// Taskbar setup
+            ///
 
-            request.Credentials = new NetworkCredential("paxftp", @"$\/]=2m%[<9%]4B");
-
-            // later this will be the images...
-            StreamReader sourceStream = new StreamReader(@"C:\Users\Tunde\Desktop\makelab\WindowsFormsApplication3\WindowsFormsApplication3\testfile.txt");
-            byte[] fileContents = Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
-            sourceStream.Close();
-            request.ContentLength = fileContents.Length;
-
-            try
-            {
-                Stream requestStream = request.GetRequestStream();
-                requestStream.Write(fileContents, 0, fileContents.Length);
-                requestStream.Close();
-
-                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-
-                Console.WriteLine("Upload'd  --- stat {0}", response.StatusDescription);
-
-                response.Close();
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine("FAIL {0}", e.Message);
-            }
-
+            ///
+            /// FTP setup
+            /// 
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
