@@ -160,7 +160,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmSynch";
-            this.Text = "File Synchronizer";
+            this.Text = "Graffiti FTP";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmSynch_Load);
             this.ResumeLayout(false);
