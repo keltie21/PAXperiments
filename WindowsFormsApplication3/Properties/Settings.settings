@@ -3,22 +3,22 @@
   <Profiles />
   <Settings>
     <Setting Name="src1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Documents/</Value>
+      <Value Profile="(Default)">c:/temp/</Value>
     </Setting>
     <Setting Name="src2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">csv/</Value>
+      <Value Profile="(Default)">c:/temp/</Value>
     </Setting>
     <Setting Name="src3" Type="System.String" Scope="User">
-      <Value Profile="(Default)">illustrator/</Value>
+      <Value Profile="(Default)">c:/temp/</Value>
     </Setting>
     <Setting Name="dst1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">z:/JPEG</Value>
+      <Value Profile="(Default)">c:/temp/put/</Value>
     </Setting>
     <Setting Name="dst2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">z:/CSV</Value>
+      <Value Profile="(Default)">c:/temp/put/</Value>
     </Setting>
     <Setting Name="dst3" Type="System.String" Scope="User">
-      <Value Profile="(Default)">z:/AI</Value>
+      <Value Profile="(Default)">c:/temp/put/</Value>
     </Setting>
     <Setting Name="browser_dst" Type="System.String" Scope="User">
       <Value Profile="(Default)">csv/</Value>

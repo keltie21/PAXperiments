@@ -71,14 +71,21 @@ namespace WindowsFormsApplication3
                         if (!Directory.Exists(dests[i]))
                             Directory.CreateDirectory(dests[i]);
                         dst = new DirectoryInfo(dests[i]);
+                        Console.WriteLine("HEY");
+                        FTPobj ftp = new FTPobj(@"ftp://70.32.92.206/test/", "paxftp", @"$\/]=2m%[<9%]4B");
+                        if (ftp.testConnection())
+                        {
+                            Console.WriteLine("Connection is good");
+                        }
 
                         foreach (FileInfo file in src.GetFiles())
                         {
                             try
                             {
-                                file.CopyTo(Path.Combine(dst.FullName, file.Name), true);
-                                file.CopyTo(Path.Combine(srcBackup.FullName, file.Name), true);
-                                file.Delete();
+                                //file.CopyTo(Path.Combine(dst.FullName, file.Name), true);
+                                //file.CopyTo(Path.Combine(srcBackup.FullName, file.Name), true);
+                                //file.Delete();
+                                Console.WriteLine("File");
                             }
                             catch (Exception z)
                             { 
@@ -94,10 +101,20 @@ namespace WindowsFormsApplication3
                 }
 
             }
-
+            tmrCopy.Enabled = false;
         }
 
         private void frmSynch_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtdest1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtsrc1_TextChanged(object sender, EventArgs e)
         {
 
         }
