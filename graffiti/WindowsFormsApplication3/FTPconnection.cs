@@ -9,7 +9,7 @@ using System.Net;
 
 namespace WindowsFormsApplication3
 {
-    class FTPobj
+    class FTPconnection
     {
         private string host = null;
         private string user = null;
@@ -18,7 +18,7 @@ namespace WindowsFormsApplication3
         private FtpWebResponse ftpResponse = null;
         private NetworkCredential netCreds = null;
 
-        public FTPobj(string hostIP, string userName, string password)
+        public FTPconnection(string hostIP, string userName, string password)
         {
             host = hostIP;
             user = userName;
@@ -37,11 +37,11 @@ namespace WindowsFormsApplication3
             }
             return false;
         }
-        public bool copyToServer(string remote, string local)
+        public bool copyToServer(string remote, string local, string logPath)
         {
             bool success = false;
-            try
-            {
+//            try
+//            {
                 ftpRequest = (FtpWebRequest)WebRequest.Create(host + remote);
                 ftpRequest.Method = WebRequestMethods.Ftp.UploadFile;
                 ftpRequest.Credentials = netCreds;
@@ -59,34 +59,32 @@ namespace WindowsFormsApplication3
                 if (ftpResponse.StatusCode == FtpStatusCode.ClosingData)
                 {
                     success = true;
-                    logResult(remote, host, user);
+                    logResult(remote, host, user, logPath);
                 }
-                
                 ftpResponse.Close();
                 
-            }
+/*            }
             catch (Exception e)
             {
                 System.Windows.Forms.MessageBox.Show(e.Message);
-            }
+            }*/
             return success;
         }
 
-        private void logResult(string fName, string hName, string uName)
+        private void logResult(string fName, string hName, string uName, string path)
         {
-            string path = @"c:\temp\log\log.txt";
-            
-
-            if (!File.Exists(path))
+            if (!File.Exists(path + @"\ftp_log.csv"))
             {
-                using (StreamWriter sw = File.CreateText(path))
+                using (StreamWriter sw = File.CreateText(path + @"\ftp_log.csv"))
                 {
-                    sw.WriteLine("");
+                    sw.WriteLine("{0},{1},{2},{3}", "filename", "host", "user", "time");
+                    
                 }
             }
-            using (StreamWriter sw = File.AppendText(path))
+            using (StreamWriter sw = File.AppendText(path + @"\ftp_log.csv"))
             {
-                sw.WriteLine("{0},{1},{2}", fName, hName, uName);
+                string nowtime = DateTime.Now.ToString();
+                sw.WriteLine("{0},{1},{2},{3}", fName, hName, uName, nowtime);
             }
         }
     }

@@ -18,20 +18,11 @@ namespace WindowsFormsApplication3
         static void Main()
         {
             string[] args = Environment.GetCommandLineArgs();
-            
-           
-
-            ///
-            /// Taskbar setup
-            ///
-
-            ///
-            /// FTP setup
-            /// 
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmSynch());
+
         }
     }
 }
