@@ -7,7 +7,7 @@ using System.IO;
 using System.Net;
 
 
-namespace WindowsFormsApplication3
+namespace Graffiti
 {
     class FTPconnection
     {

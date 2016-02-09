@@ -7,3 +7,12 @@ C:\Users\Tunde\Desktop\makelab\revision\graffiti\WindowsFormsApplication3\obj\Re
 C:\Users\Tunde\Desktop\makelab\revision\graffiti\WindowsFormsApplication3\obj\Release\WindowsFormsApplication3.exe
 C:\Users\Tunde\Desktop\makelab\revision\graffiti\WindowsFormsApplication3\obj\Release\WindowsFormsApplication3.pdb
 C:\Users\Tunde\Desktop\makelab\revision\graffiti\WindowsFormsApplication3\obj\Release\GraffitiFTP.csprojResolveAssemblyReference.cache
+C:\Users\Tunde\Desktop\makelab\WindowsFormsApplication3\graffiti\WindowsFormsApplication3\obj\Release\GraffitiFTP.csprojResolveAssemblyReference.cache
+C:\Users\Tunde\Desktop\makelab\WindowsFormsApplication3\graffiti\WindowsFormsApplication3\obj\Release\GraffitiFTP.csproj.GenerateResource.Cache
+C:\Users\Tunde\Desktop\makelab\WindowsFormsApplication3\graffiti\WindowsFormsApplication3\bin\Release\Graffiti.exe.config
+C:\Users\Tunde\Desktop\makelab\WindowsFormsApplication3\graffiti\WindowsFormsApplication3\bin\Release\Graffiti.exe
+C:\Users\Tunde\Desktop\makelab\WindowsFormsApplication3\graffiti\WindowsFormsApplication3\bin\Release\Graffiti.pdb
+C:\Users\Tunde\Desktop\makelab\WindowsFormsApplication3\graffiti\WindowsFormsApplication3\obj\Release\Graffiti.frmSynch.resources
+C:\Users\Tunde\Desktop\makelab\WindowsFormsApplication3\graffiti\WindowsFormsApplication3\obj\Release\Graffiti.Properties.Resources.resources
+C:\Users\Tunde\Desktop\makelab\WindowsFormsApplication3\graffiti\WindowsFormsApplication3\obj\Release\Graffiti.exe
+C:\Users\Tunde\Desktop\makelab\WindowsFormsApplication3\graffiti\WindowsFormsApplication3\obj\Release\Graffiti.pdb

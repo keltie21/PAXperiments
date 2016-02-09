@@ -7,7 +7,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace WindowsFormsApplication3
+namespace Graffiti
 {
     static class Program
     {

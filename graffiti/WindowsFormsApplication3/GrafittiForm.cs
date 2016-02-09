@@ -11,7 +11,7 @@ using System.IO;
 
 using Microsoft.Win32;
 
-namespace WindowsFormsApplication3
+namespace Graffiti
 {
     public partial class frmSynch : Form
     {
@@ -76,10 +76,16 @@ namespace WindowsFormsApplication3
                 FTPconnection ftp = new FTPconnection(ftpHost, ftpName, ftpPass);
                 bool connected = false;
                 bool sent = false;
+                FileInfo[] files = null;
 
                 try
                 {
-                    connected = ftp.testConnection();
+                    files = src.GetFiles();
+                    //System.Console.WriteLine("FILES " + files.Length);
+                    if (files.Length > 0)
+                    {
+                        connected = ftp.testConnection();
+                    }
                 }
                 catch (Exception z)
                 {
@@ -89,7 +95,7 @@ namespace WindowsFormsApplication3
                 // upload if ftp is good
                 if (connected)
                 {
-                    foreach (FileInfo file in src.GetFiles())
+                    foreach (FileInfo file in files)
                     {
                         try
                         {

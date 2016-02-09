@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Graffiti
 {
     partial class frmSynch
     {
@@ -210,7 +210,7 @@
         private System.Windows.Forms.Timer tmrCopy;
         private System.Windows.Forms.CheckBox copy;
         private System.Windows.Forms.TextBox txtftp_host;
-        
+
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtftp_name;
         private System.Windows.Forms.TextBox txtftp_pass;
