@@ -1,0 +1,9 @@
+C:\Users\Tunde\Desktop\makelab\sync\WindowsFormsApplication3\WindowsFormsApplication3\bin\Release\SurfaceSync.exe.config
+C:\Users\Tunde\Desktop\makelab\sync\WindowsFormsApplication3\WindowsFormsApplication3\bin\Release\SurfaceSync.exe
+C:\Users\Tunde\Desktop\makelab\sync\WindowsFormsApplication3\WindowsFormsApplication3\bin\Release\SurfaceSync.pdb
+C:\Users\Tunde\Desktop\makelab\sync\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\FileSynch.csprojResolveAssemblyReference.cache
+C:\Users\Tunde\Desktop\makelab\sync\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\SurfaceSync.frmSynch.resources
+C:\Users\Tunde\Desktop\makelab\sync\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\SurfaceSync.Properties.Resources.resources
+C:\Users\Tunde\Desktop\makelab\sync\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\FileSynch.csproj.GenerateResource.Cache
+C:\Users\Tunde\Desktop\makelab\sync\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\SurfaceSync.exe
+C:\Users\Tunde\Desktop\makelab\sync\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\SurfaceSync.pdb
